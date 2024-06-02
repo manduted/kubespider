@@ -1,0 +1,70 @@
+{
+  "name": "kubespider-extension",
+  "description": "Trigger Kubespider execute downloading task",
+  "version": "0.2.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "img/icon48.png"
+  },
+  "background": {
+    "scripts": [
+      "service-worker-loader.js"
+    ],
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/index.tsx-loader-2MxPyVFe.js"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "resources": [
+        "img/icon16.png",
+        "img/icon48.png",
+        "img/icon128.png"
+      ]
+    },
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "resources": [
+        "assets/chunk-T26GuxHg.js",
+        "assets/chunk-B9e8ng1t.js",
+        "assets/chunk-CBVaWBKk.js"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "contextMenus",
+    "tabs",
+    "cookies",
+    "activeTab",
+    "scripting"
+  ]
+}
